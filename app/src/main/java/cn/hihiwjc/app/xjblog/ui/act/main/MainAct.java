@@ -19,7 +19,7 @@ import cn.hihiwjc.app.xjblog.R;
  * <br/>Author:hihiwjc
  * <br/>Email:hihiwjc@live.com
  * <br/>Date:2016/3/12 0012
- * <br/>Func:首页Activity
+ * <br/>Func:Home Activity
  */
 public class MainAct extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

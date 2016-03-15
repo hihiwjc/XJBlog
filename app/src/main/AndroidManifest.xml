@@ -5,6 +5,7 @@
 	>
 	<!--权限申请开始-->
 	<!--网络权限-->
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<application
 		android:name=".App"

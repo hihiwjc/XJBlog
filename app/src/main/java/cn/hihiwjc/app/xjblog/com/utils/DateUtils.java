@@ -1,4 +1,4 @@
-package cn.hihiwjc.app.xjblog.comm.utils;
+package cn.hihiwjc.app.xjblog.com.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

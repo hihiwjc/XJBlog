@@ -1,4 +1,4 @@
-package cn.hihiwjc.app.xjblog.comm.setting;
+package cn.hihiwjc.app.xjblog.com.setting;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class Setting extends SettingBean implements Serializable {
 	private Map<String, SettingExtra> extras;
 
 	public Setting() {
-		extras = new HashMap<String, SettingExtra>();
+		extras = new HashMap<>();
 	}
 
 	public Map<String, SettingExtra> getExtras() {

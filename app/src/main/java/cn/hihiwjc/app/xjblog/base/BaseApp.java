@@ -11,4 +11,8 @@ import android.app.Application;
  */
 
 public abstract class BaseApp extends Application {
+
+    public String getAppPath() {
+        return this.getFilesDir().getPath();
+    }
 }

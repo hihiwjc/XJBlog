@@ -1,4 +1,4 @@
-package cn.hihiwjc.app.xjblog.comm.setting;
+package cn.hihiwjc.app.xjblog.com.setting;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class SettingArray extends SettingBean implements Serializable {
 	private int index;
 	
 	public SettingArray() {
-		settingArray = new ArrayList<Setting>();
+		settingArray = new ArrayList<>();
 	}
 
 	public List<Setting> getSettingArray() {

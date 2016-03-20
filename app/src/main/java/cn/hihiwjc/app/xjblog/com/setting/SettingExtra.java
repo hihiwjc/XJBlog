@@ -1,4 +1,4 @@
-package cn.hihiwjc.app.xjblog.comm.setting;
+package cn.hihiwjc.app.xjblog.com.setting;
 
 import java.io.Serializable;
 

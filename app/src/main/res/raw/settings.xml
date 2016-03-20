@@ -100,13 +100,9 @@
 
 	<setting type="about_url">
 		<des>关于</des>
-		<value>https://github.com/hihiwjc</value>
+		<value>https://github.com/hihiwjc/xjblog</value>
 	</setting>
 
-	<setting type="server_url">
-		<des>服务器地址</des>
-		<value>http://182.254.223.120</value>
-	</setting>
 
 	<setting type="help_url">
 		<des>帮助</des>
@@ -117,5 +113,13 @@
 		<des>Fragment帮助类</des>
 		<value>org.aisen.weibo.sina.ui.fragment.base.FragmentHelper</value>
 	</setting> -->
-
+	<!--Server Settings-->
+	<setting type="server_ip">
+		<des>服务器IP</des>
+		<value>http://182.254.223.120</value>
+	</setting>
+	<setting type="server_domain">
+		<des>服务器域名</des>
+		<value>http://hihiwjc.cn</value>
+	</setting>
 </app-settings>

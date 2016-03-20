@@ -1,4 +1,4 @@
-package cn.hihiwjc.app.xjblog.comm.setting;
+package cn.hihiwjc.app.xjblog.com.setting;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cn.hihiwjc.app.xjblog.comm.utils.Logger;
+import cn.hihiwjc.app.xjblog.com.utils.Logger;
 
 public class SettingsXmlParser {
 
@@ -24,8 +24,8 @@ public class SettingsXmlParser {
 	}
 
 	static Map<String, Setting> parseSettings(Context context, String fileName) {
-		Map<String, Setting> settingMap = new HashMap<String, Setting>();
-		List<SettingArray> settingArray = new ArrayList<SettingArray>();
+		Map<String, Setting> settingMap = new HashMap<>();
+		List<SettingArray> settingArray = new ArrayList<>();
 		List<SettingExtra> settingExtras = null;
 
 		Setting readSetting = null;

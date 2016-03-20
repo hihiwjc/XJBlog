@@ -10,7 +10,15 @@ import cn.hihiwjc.app.xjblog.base.BaseApp;
  */
 
 public class App extends BaseApp {
+    private static App self;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        self = this;
+    }
+
     public static App getSelf() {
-        return null;
+        return self;
     }
 }

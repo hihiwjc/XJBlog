@@ -1,13 +1,14 @@
-package cn.hihiwjc.app.xjblog.comm.setting;
+package cn.hihiwjc.app.xjblog.com.setting;
 
-import org.aisen.android.common.context.GlobalContext;
-import org.aisen.android.common.utils.ActivityHelper;
-import org.aisen.android.common.utils.SdcardUtils;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import cn.hihiwjc.app.xjblog.App;
+import cn.hihiwjc.app.xjblog.com.utils.ActivityHelper;
+import cn.hihiwjc.app.xjblog.com.utils.SdcardUtils;
 
 public class SettingUtility {
 
@@ -26,7 +27,8 @@ public class SettingUtility {
 		addSettings("settings");
 
         if (SdcardUtils.hasSdcardAndCanWrite()) {
-            File rootFile = new File(GlobalContext.getInstance().getAppPath());
+			String appPath = App.getSelf().getAppPath();
+			File rootFile = new File(appPath);
             if (!rootFile.exists())
                 rootFile.mkdirs();
 
@@ -44,11 +46,11 @@ public class SettingUtility {
 
 	/**
 	 * 添加设置配置数据
-	 * 
+	 *
 	 * @param settingsXmlName
 	 */
 	public static void addSettings(String settingsXmlName) {
-		Map<String, Setting> newSettingMap = SettingsXmlParser.parseSettings(GlobalContext.getInstance(), settingsXmlName);
+		Map<String, Setting> newSettingMap = SettingsXmlParser.parseSettings(App.getSelf(), settingsXmlName);
 
 		Set<String> keySet = newSettingMap.keySet();
 		for (String key : keySet)

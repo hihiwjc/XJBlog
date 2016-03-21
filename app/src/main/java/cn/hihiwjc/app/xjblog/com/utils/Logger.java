@@ -2,7 +2,7 @@ package cn.hihiwjc.app.xjblog.com.utils;
 
 import android.util.Log;
 
-import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 
 import cn.hihiwjc.app.xjblog.BuildConfig;
 
@@ -96,7 +96,7 @@ public class Logger {
 		if (msg instanceof String)
 			return msg.toString();
 		
-		String json = JSON.toJSONString(msg);
+		String json = new Gson().toJson(msg);
 		if (json.length() > 500)
 			json = json.substring(0, 500);
 

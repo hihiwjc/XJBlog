@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.Xml;
 
-import com.alibaba.fastjson.JSON;
+
+import com.google.gson.Gson;
 
 import org.xmlpull.v1.XmlPullParser;
 
@@ -97,13 +98,13 @@ public class SettingsXmlParser {
 								settingMap.put(readSetting.getType(), readSetting);
 							}
 						}
-						Logger.d(TAG, String.format("parse new setting --->%s", JSON.toJSONString(readSetting)));
+						Logger.d(TAG, String.format("parse new setting --->%s", new Gson().toJson(readSetting)));
 						readSetting = null;
 					}
 
 					if ("setting-array".equals(xmlResParser.getName())) {
 						settingArray.add(readSettingArray);
-						Logger.d(TAG, String.format("parse new settingArray --->%s", JSON.toJSONString(readSettingArray)));
+						Logger.d(TAG, String.format("parse new settingArray --->%s", new Gson().toJson(readSettingArray)));
 						readSettingArray = null;
 					}
 
@@ -117,7 +118,7 @@ public class SettingsXmlParser {
 
 					if ("extra".equals(xmlResParser.getName())) {
 						settingExtras.add(readSettingExtra);
-						Logger.d(TAG, String.format("parse new settingExtra --->%s", JSON.toJSONString(settingExtras)));
+						Logger.d(TAG, String.format("parse new settingExtra --->%s", new Gson().toJson(settingExtras)));
 						readSettingExtra = null;
 					}
 				}

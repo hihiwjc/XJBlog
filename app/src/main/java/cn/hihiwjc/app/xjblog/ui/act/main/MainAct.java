@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import cn.hihiwjc.app.xjblog.R;
+import cn.hihiwjc.app.xjblog.biz.setting.SettingBiz;
+import cn.hihiwjc.app.xjblog.com.utils.Logger;
 
 /**
  * <br/>Author:hihiwjc
@@ -37,6 +39,7 @@ public class MainAct extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Logger.e(SettingBiz.getSelf().loadServerIP());
             }
         });
 

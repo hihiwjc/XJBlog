@@ -1,6 +1,7 @@
 package cn.hihiwjc.app.xjblog;
 
 import cn.hihiwjc.app.xjblog.base.BaseApp;
+import cn.hihiwjc.app.xjblog.biz.setting.SettingBiz;
 
 /**
  * <br/>Author:hihiwjc
@@ -16,9 +17,14 @@ public class App extends BaseApp {
     public void onCreate() {
         super.onCreate();
         self = this;
+        initialize();
     }
 
     public static App getSelf() {
         return self;
+    }
+
+    public void initialize() {
+        SettingBiz.getSelf().init();
     }
 }

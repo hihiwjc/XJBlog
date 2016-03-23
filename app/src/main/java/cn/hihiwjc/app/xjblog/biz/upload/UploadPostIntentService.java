@@ -94,7 +94,7 @@ public class UploadPostIntentService extends IntentService {
             try {
                 activeCall = clientRetrofit.createMedia(media, f);
                 Response<Media> mediaResponse = activeCall.execute();
-                if (mediaResponse.isSuccess()) {
+                if (mediaResponse.isSuccessful()) {
                     mediaIds.add(mediaResponse.body().getId());
                 } else {
                     error(mediaResponse.code(), mediaResponse.errorBody() != null ? mediaResponse.errorBody().string() : mediaResponse.message());
@@ -156,7 +156,7 @@ public class UploadPostIntentService extends IntentService {
         long postId = -1;
         try {
             Response<Post> postResponse = clientRetrofit.createPost(post).execute();
-            if (postResponse.isSuccess()) {
+            if (postResponse.isSuccessful()) {
                 postId = postResponse.body().getId();
                 link = postResponse.body().getLink();
             } else {
@@ -172,7 +172,7 @@ public class UploadPostIntentService extends IntentService {
             for (Meta meta : postMetas) {
                 try {
                     Response<Meta> metaResponse = clientRetrofit.createPostMeta(postId, meta).execute();
-                    if (metaResponse.isSuccess()) {
+                    if (metaResponse.isSuccessful()) {
                         //log("uploaded post meta data");
                     } else {
                         error(metaResponse.code(), metaResponse.errorBody() != null ? metaResponse.errorBody().string() : metaResponse.message());

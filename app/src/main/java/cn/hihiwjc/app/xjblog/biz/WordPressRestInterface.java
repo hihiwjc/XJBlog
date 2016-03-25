@@ -1,18 +1,17 @@
 package cn.hihiwjc.app.xjblog.biz;
 
-import cn.hihiwjc.app.xjblog.biz.model.Comment;
-import cn.hihiwjc.app.xjblog.biz.model.Media;
-import cn.hihiwjc.app.xjblog.biz.model.Meta;
-import cn.hihiwjc.app.xjblog.biz.model.Page;
-import cn.hihiwjc.app.xjblog.biz.model.Post;
-import cn.hihiwjc.app.xjblog.biz.model.Taxonomy;
-import cn.hihiwjc.app.xjblog.biz.model.User;
-import cn.hihiwjc.app.xjblog.biz.util.ContentUtil;
-
 import java.io.File;
 import java.util.List;
 import java.util.Map;
 
+import cn.hihiwjc.app.xjblog.biz.mod.Comment;
+import cn.hihiwjc.app.xjblog.biz.mod.Media;
+import cn.hihiwjc.app.xjblog.biz.mod.Meta;
+import cn.hihiwjc.app.xjblog.biz.mod.Page;
+import cn.hihiwjc.app.xjblog.biz.mod.Post;
+import cn.hihiwjc.app.xjblog.biz.mod.Taxonomy;
+import cn.hihiwjc.app.xjblog.biz.mod.User;
+import cn.hihiwjc.app.xjblog.biz.util.ContentUtil;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -25,11 +24,12 @@ import retrofit2.http.PartMap;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
+import rx.Observable;
 
 /**
  * REST API interface for WP REST API plugin.
  *
- * @author Jan-Louis Crafford
+ * @author hihiwjc
  *         Created on 2016/01/12.
  */
 public interface WordPressRestInterface {
@@ -50,8 +50,8 @@ public interface WordPressRestInterface {
      *
      * @return List of Post objects
      */
-    @GET("posts")
-    Call<List<Post>> getPosts();
+    @GET("posts?context=embed")
+    Observable<List<Post>> getPosts();
 
     /**
      * Gets a single Post.
@@ -61,7 +61,7 @@ public interface WordPressRestInterface {
      * @return Post object
      */
     @GET("posts/{id}")
-    Call<Post> getPost(@Path("id") long postId, @QueryMap Map<String, String> map);
+    Observable<Post> getPost(@Path("id") long postId, @QueryMap Map<String, String> map);
 
     /**
      * Gets all Posts created by a User.

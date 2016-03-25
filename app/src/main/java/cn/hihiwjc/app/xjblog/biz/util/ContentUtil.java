@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import cn.hihiwjc.app.xjblog.R;
-import cn.hihiwjc.app.xjblog.biz.model.Media;
+import cn.hihiwjc.app.xjblog.biz.mod.Media;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 

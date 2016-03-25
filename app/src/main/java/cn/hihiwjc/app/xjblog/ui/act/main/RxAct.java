@@ -6,10 +6,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.HashMap;
 import java.util.List;
 
 import cn.hihiwjc.app.xjblog.R;
-import cn.hihiwjc.app.xjblog.biz.model.Posts;
+import cn.hihiwjc.app.xjblog.biz.WordPressRestInterface;
+import cn.hihiwjc.app.xjblog.biz.mod.Post;
+import cn.hihiwjc.app.xjblog.biz.mod.Posts;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -37,7 +40,7 @@ import rx.schedulers.Schedulers;
 public class RxAct extends Activity {
     private EditText mEdv;
     private Retrofit retrofit;
-    private RxService rxService;
+    private WordPressRestInterface wpService;
     private List<Subscription> subscriptions;
 
     @Override
@@ -47,7 +50,7 @@ public class RxAct extends Activity {
         mEdv = (EditText) findViewById(R.id.edv_text);
         retrofit = new Retrofit.Builder().baseUrl("http://hihiwjc.cn/wp-json/wp/v2/")
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create()).addConverterFactory(GsonConverterFactory.create()).build();
-        rxService = retrofit.create(RxService.class);
+        wpService = retrofit.create(WordPressRestInterface.class);
     }
 
     public void clickEvent(View view) {
@@ -59,10 +62,10 @@ public class RxAct extends Activity {
     private void queryData() {
         double random = Math.random();
         int id = (int) (random * 20 + 1);
-        subscriptions.add(rxService.getPosts("" + id)
-                .subscribeOn(Schedulers.io())
+        HashMap<String, String> params = new HashMap<>();
+        wpService.getPosts().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Posts>() {
+                .subscribe(new Observer<List<Post>>() {
                     @Override
                     public void onCompleted() {
                         Toast.makeText(RxAct.this, "请求网络完成", Toast.LENGTH_SHORT).show();
@@ -74,10 +77,29 @@ public class RxAct extends Activity {
                     }
 
                     @Override
-                    public void onNext(Posts posts) {
-                        fillData(posts.toString());
+                    public void onNext(List<Post> posts) {
+                        fillData(posts.size()+"篇文章");
                     }
-                }));
+                });
+        /*wpService.getPost(1, params)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Post>() {
+                    @Override
+                    public void onCompleted() {
+                        Toast.makeText(RxAct.this, "请求网络完成", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(RxAct.this, "请求网络错误" + e, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onNext(Post post) {
+                        fillData(post.getContent().getRaw());
+                    }
+                });*/
     }
 
     private void fillData(String text) {

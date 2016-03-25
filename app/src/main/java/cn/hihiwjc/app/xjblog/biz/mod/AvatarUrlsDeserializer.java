@@ -1,4 +1,4 @@
-package cn.hihiwjc.app.xjblog.biz.model;
+package cn.hihiwjc.app.xjblog.biz.mod;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;

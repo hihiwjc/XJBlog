@@ -1,4 +1,4 @@
-package cn.hihiwjc.app.xjblog.biz.model;
+package cn.hihiwjc.app.xjblog.biz.mod;
 
 import android.os.Parcel;
 import android.os.Parcelable;

@@ -7,11 +7,11 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import cn.hihiwjc.app.xjblog.biz.WordPressRestInterface;
-import cn.hihiwjc.app.xjblog.biz.mod.Media;
-import cn.hihiwjc.app.xjblog.biz.mod.Meta;
-import cn.hihiwjc.app.xjblog.biz.mod.Post;
-import cn.hihiwjc.app.xjblog.biz.mod.Taxonomy;
-import cn.hihiwjc.app.xjblog.biz.mod.User;
+import cn.hihiwjc.app.xjblog.biz.model.Media;
+import cn.hihiwjc.app.xjblog.biz.model.Meta;
+import cn.hihiwjc.app.xjblog.biz.model.Post;
+import cn.hihiwjc.app.xjblog.biz.model.Taxonomy;
+import cn.hihiwjc.app.xjblog.biz.model.User;
 import cn.hihiwjc.app.xjblog.biz.rest.interceptor.OkHttpBasicAuthInterceptor;
 import cn.hihiwjc.app.xjblog.biz.rest.interceptor.OkHttpDebugInterceptor;
 import cn.hihiwjc.app.xjblog.biz.util.ContentUtil;
@@ -68,7 +68,7 @@ public class ClientRetrofit {
     private <T> void doRetrofitCall(Call<T> call, final WordPressRestResponse<T> callback) {
         Callback<T> retroCallback = new Callback<T>() {
             @Override
-            public void onResponse(Call<T> call,Response<T> response) {
+            public void onResponse(Call<T> call, Response<T> response) {
                 if (response.isSuccessful()) {
                     callback.onSuccess(response.body());
                 } else {
@@ -112,13 +112,13 @@ public class ClientRetrofit {
     public void getPost(long postId, WordPressRestResponse<Post> callback) {
         Map<String, String> map = new HashMap<>();
         map.put("context", "view");
-        //doRetrofitCall(mRestInterface.getPost(postId, map), callback);
+        doRetrofitCall(mRestInterface.getPost(postId, map), callback);
     }
 
     public void getPostForEdit(long postId, WordPressRestResponse<Post> callback) {
         Map<String, String> map = new HashMap<>();
         map.put("context", "edit");
-        //doRetrofitCall(mRestInterface.getPost(postId, map), callback);
+        doRetrofitCall(mRestInterface.getPost(postId, map), callback);
     }
 
     public void getPostsForAuthor(long authorId, WordPressRestResponse<List<Post>> callback) {

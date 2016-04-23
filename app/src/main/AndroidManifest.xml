@@ -34,7 +34,7 @@
 		<!--Rx测试-->
 		<activity
 			android:name=".ui.act.main.RxAct"
-			android:label="@string/app_about"
+			android:label="Winuxs_RxTest"
 			android:theme="@style/AppTheme.NoActionBar"
 			>
 			<intent-filter>

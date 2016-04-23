@@ -1,4 +1,15 @@
 <resources>
-	<string name="app_name">小贱博客</string>
-	<string name="app_about">永远保持着那颗程序员的求知之心\r\n</string>
+	<string name="app_name">Winuxs</string>
+	<string name="app_motto">永远保持着那颗程序员的求知之心</string>
+	<string name="app_our_description">二刺猿，爱代码，爱学习，很闷骚，老司机</string>
+	<string name="app_home">首页</string>
+	<string name="newest">最新</string>
+	<string name="cat_dev">乖乖站好</string>
+	<string name="cat_welfare">胖次</string>
+	<string name="cat_acg">二刺猿</string>
+	<string name="cat_gay">搞机</string>
+	<string name="other">其它</string>
+	<string name="setting">设置</string>
+	<string name="about_us">关于我们</string>
+
 </resources>

@@ -4,22 +4,22 @@
 	<group android:checkableBehavior="single">
 		<item
 			android:id="@+id/nav_camera"
-			android:icon="@drawable/ic_menu_camera"
+			android:icon="@mipmap/ic_drawer_cat_dev"
 			android:title="@string/cat_dev"
 			/>
 		<item
 			android:id="@+id/nav_gallery"
-			android:icon="@drawable/ic_menu_gallery"
+			android:icon="@mipmap/ic_drawer_cat_welfare"
 			android:title="@string/cat_welfare"
 			/>
 		<item
 			android:id="@+id/nav_slideshow"
-			android:icon="@drawable/ic_menu_slideshow"
+			android:icon="@mipmap/ic_drawer_cat_acg"
 			android:title="@string/cat_acg"
 			/>
 		<item
 			android:id="@+id/nav_manage"
-			android:icon="@drawable/ic_menu_manage"
+			android:icon="@mipmap/ic_drawer_cat_gay"
 			android:title="@string/cat_gay"
 			/>
 	</group>
@@ -28,12 +28,12 @@
 		<menu>
 			<item
 				android:id="@+id/nav_share"
-				android:icon="@drawable/ic_menu_share"
+				android:icon="@mipmap/ic_settings"
 				android:title="@string/setting"
 				/>
 			<item
 				android:id="@+id/nav_send"
-				android:icon="@drawable/ic_menu_send"
+				android:icon="@mipmap/ic_info"
 				android:title="@string/about_us"
 				/>
 		</menu>

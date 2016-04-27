@@ -43,6 +43,7 @@ public class WordPressRestApiHelper {
     public void getPosts(Observer<List<Post>> observer){
         wpService.getPosts()                                    //Retrofit自动实现的方法
                  .subscribeOn(Schedulers.io())                  //被观察者线程类型，访问网络时为io模式
+                 .unsubscribeOn(Schedulers.io())                //用于解绑
                  .observeOn(AndroidSchedulers.mainThread())     //观察者线程类型，此处为主线程以适配界面数据
                  .subscribe(observer);                          //绑定至观察者
     }

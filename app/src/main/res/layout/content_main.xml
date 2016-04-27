@@ -5,24 +5,15 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:paddingBottom="@dimen/activity_vertical_margin"
-	android:paddingLeft="@dimen/activity_horizontal_margin"
-	android:paddingRight="@dimen/activity_horizontal_margin"
-	android:paddingTop="@dimen/activity_vertical_margin"
+	android:background="@color/gray50"
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 	tools:context=".ui.act.main.MainAct"
 	tools:showIn="@layout/app_bar_main"
 	>
 
-	<android.support.v7.widget.CardView
+	<FrameLayout
+		android:id="@+id/content_container"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		>
-
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="80dp"
-			android:text="Hello World!"
-			/>
-	</android.support.v7.widget.CardView>
+		android:layout_height="match_parent"
+		/>
 </RelativeLayout>

@@ -5,7 +5,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:fitsSystemWindows="true"
+	android:background="?attr/colorPrimary"
+	android:paddingTop="@dimen/status_bar_height"
 	tools:context=".ui.act.main.MainAct"
 	>
 
@@ -15,14 +16,28 @@
 		android:theme="@style/AppTheme.AppBarOverlay"
 		>
 
+		<!--<View
+			android:layout_width="match_parent"
+			android:layout_height="25dp"
+			android:background="?attr/colorPrimary"
+			/>-->
+
+
 		<android.support.v7.widget.Toolbar
 			android:id="@+id/toolbar"
 			android:layout_width="match_parent"
 			android:layout_height="?attr/actionBarSize"
 			android:background="?attr/colorPrimary"
+			app:layout_collapseMode="none"
+			app:layout_scrollFlags="enterAlways|scroll|snap"
 			app:popupTheme="@style/AppTheme.PopupOverlay"
 			/>
 
+		<android.support.design.widget.TabLayout
+			android:id="@+id/tab_main"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			/>
 	</android.support.design.widget.AppBarLayout>
 
 	<include layout="@layout/content_main"/>

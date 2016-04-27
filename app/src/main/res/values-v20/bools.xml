@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<bool name="fit_system_window">false</bool>
+	<bool name="clip_to_padding">false</bool>
+</resources>

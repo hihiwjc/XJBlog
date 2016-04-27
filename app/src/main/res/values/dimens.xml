@@ -9,4 +9,6 @@
 	<!--字体大小-->
 	<dimen name="font_size_small">12sp</dimen>
 	<dimen name="font_size_normal">14sp</dimen>
+	<!--status bar height-->
+	<dimen name="status_bar_height">25dp</dimen>
 </resources>

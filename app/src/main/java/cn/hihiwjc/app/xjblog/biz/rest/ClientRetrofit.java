@@ -121,9 +121,9 @@ public class ClientRetrofit {
         //doRetrofitCall(mRestInterface.getPost(postId, map), callback);
     }
 
-    public void getPostsForAuthor(long authorId, WordPressRestResponse<List<Post>> callback) {
-        doRetrofitCall(mRestInterface.getPostsForAuthor(authorId), callback);
-    }
+//    public void getPostsForAuthor(long authorId, WordPressRestResponse<List<Post>> callback) {
+//        doRetrofitCall(mRestInterface.getPostsForAuthor(authorId), callback);
+//    }
 
     public void getPostsForTag(String tag, WordPressRestResponse<List<Post>> callback) {
         doRetrofitCall(mRestInterface.getPostsForTags(tag), callback);

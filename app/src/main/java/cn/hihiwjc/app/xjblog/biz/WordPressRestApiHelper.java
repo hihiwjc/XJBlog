@@ -1,6 +1,7 @@
 package cn.hihiwjc.app.xjblog.biz;
 
 import java.util.List;
+import java.util.Map;
 
 import cn.hihiwjc.app.xjblog.biz.mod.Post;
 import retrofit2.Retrofit;
@@ -37,15 +38,28 @@ public class WordPressRestApiHelper {
     }
 
     /**
-     * 获取文章列表（不含文章内容）
-     * @param observer 自定义观察者,绑定在主线程
+     * 获取文章列表
+     * @param map 参数集合
+     * @param observer 自定义观察者
      */
-    public void getPosts(Observer<List<Post>> observer){
-        wpService.getPosts()                                    //Retrofit自动实现的方法
+    public void getPosts(Map<String, Object> map,Observer<List<Post>> observer){
+        wpService.getPosts(map)                                 //Retrofit自动实现的方法
                  .subscribeOn(Schedulers.io())                  //被观察者线程类型，访问网络时为io模式
                  .unsubscribeOn(Schedulers.io())                //用于解绑
                  .observeOn(AndroidSchedulers.mainThread())     //观察者线程类型，此处为主线程以适配界面数据
                  .subscribe(observer);                          //绑定至观察者
     }
+
+//    /**
+//     * 获取某个作者的文章列表（不含文章内容）
+//     * @param observer 自定义观察者,绑定在主线程
+//     */
+//    public void getPostsForAuthor(Observer<List<Post>> observer){
+//        wpService.getPosts()                                    //Retrofit自动实现的方法
+//                .subscribeOn(Schedulers.io())                  //被观察者线程类型，访问网络时为io模式
+//                .unsubscribeOn(Schedulers.io())                //用于解绑
+//                .observeOn(AndroidSchedulers.mainThread())     //观察者线程类型，此处为主线程以适配界面数据
+//                .subscribe(observer);                          //绑定至观察者
+//    }
 
 }

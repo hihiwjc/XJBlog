@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cn.hihiwjc.app.xjblog.R;
 import cn.hihiwjc.app.xjblog.biz.WordPressRestApiHelper;
@@ -53,7 +54,9 @@ public class RxAct extends Activity {
 
     public void clickEvent(View view) {
         Toast.makeText(this, "请求网络", Toast.LENGTH_SHORT).show();
-        apiHelper.getPosts(new Observer<List<Post>>() {
+        Map<String,Object> map = new HashMap<>();
+        map.put("per_page",15);
+        apiHelper.getPosts(map,new Observer<List<Post>>() {
             @Override
             public void onCompleted() {
                 Toast.makeText(RxAct.this, "请求网络完成", Toast.LENGTH_SHORT).show();

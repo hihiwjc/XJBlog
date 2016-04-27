@@ -54,6 +54,15 @@ public interface WordPressRestInterface {
     Observable<List<Post>> getPosts();
 
     /**
+     * Gets Posts.
+     *
+     * @param map Optional query params
+     * @return Post object
+     */
+    @GET("posts")
+    Observable<List<Post>> getPosts(@QueryMap Map<String, Object> map);
+
+    /**
      * Gets a single Post.
      *
      * @param postId Id of the Post
@@ -70,7 +79,7 @@ public interface WordPressRestInterface {
      * @return List of Post objects for the User
      */
     @GET("posts")
-    Call<List<Post>> getPostsForAuthor(@Query("author") long authorId);
+    Observable<List<Post>> getPostsForAuthor(@Query("author") long authorId);
 
     /**
      * Updates an existing Post.

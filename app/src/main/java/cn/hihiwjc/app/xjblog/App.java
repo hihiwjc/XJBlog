@@ -27,4 +27,5 @@ public class App extends BaseApp {
     public void initialize() {
         SettingBiz.getSelf().init();
     }
+
 }
